@@ -2,8 +2,6 @@
 
 namespace Jkirkby91\Boilers\RepositoryBoiler;
 
-use Psr\Http\Message\ServerRequestInterface;
-
 /**
  * Interface ResourceControllerContract
  *
@@ -18,7 +16,7 @@ interface CrudRepositoryContract
      *
      * @return mixed
      */
-    public function create(ServerRequestInterface $request);
+    public function create($entity);
 
     /**
      * show individual resource
@@ -31,10 +29,10 @@ interface CrudRepositoryContract
     /**
      * Store a new resource
      *
-     * @param ServerRequestInterface $request
+     * @param Entity $entity
      * @return mixed
      */
-    public function update(ServerRequestInterface $request);
+    public function update($entity);
 
     /**
      * Destroy single resource
