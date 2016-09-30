@@ -2,6 +2,7 @@
 
 namespace Jkirkby91\Boilers\RepositoryBoiler;
 
+use Jkirkby91\Boilers\NodeEntityBoiler\EntityContract AS Entity;
 use Psr\Http\Message\ServerRequestInterface;
 
 /**
@@ -29,17 +30,16 @@ interface ResourceRepositoryContract
     public function show($id);
 
     /**
-     * @param ServerRequestInterface $request
+     * @param Entity $entity
      * @return mixed
      */
-    public function store(ServerRequestInterface $request);
+    public function store(Entity $entity);
 
     /**
      * @param ServerRequestInterface $request
-     * @param $id
      * @return mixed
      */
-    public function update(ServerRequestInterface $request,$id);
+    public function update(Entity $entity,$id);
 
     /**
      * Destroy single resource
