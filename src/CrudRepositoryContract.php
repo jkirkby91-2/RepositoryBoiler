@@ -2,6 +2,8 @@
 
 namespace Jkirkby91\Boilers\RepositoryBoiler;
 
+use Jkirkby91\Boilers\NodeEntityBoiler\EntityContract AS Entity;
+
 /**
  * Interface ResourceControllerContract
  *
@@ -16,7 +18,7 @@ interface CrudRepositoryContract
      *
      * @return mixed
      */
-    public function create($entity);
+    public function create(Entity $entity);
 
     /**
      * show individual resource
@@ -32,7 +34,7 @@ interface CrudRepositoryContract
      * @param Entity $entity
      * @return mixed
      */
-    public function update($entity);
+    public function update(Entity $entity);
 
     /**
      * Destroy single resource

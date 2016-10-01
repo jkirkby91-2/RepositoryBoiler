@@ -36,10 +36,10 @@ interface ResourceRepositoryContract
     public function store(Entity $entity);
 
     /**
-     * @param ServerRequestInterface $request
+     * @param Entity $entity
      * @return mixed
      */
-    public function update(Entity $entity,$id);
+    public function update(Entity $entity);
 
     /**
      * Destroy single resource
