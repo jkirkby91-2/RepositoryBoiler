@@ -1,5 +1,5 @@
 {
-    "name": "jkirkby91/RepositoryBoiler",
+    "name": "jkirkby91/repositoryboiler",
     "autoload": {
         "psr-4": {
             "Jkirkby91\\Boilers\\RepositoryBoiler\\": "src/"
