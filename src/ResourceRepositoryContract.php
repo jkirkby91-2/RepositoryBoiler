@@ -1,52 +1,66 @@
 <?php
+	declare(strict_types=1);
 
-namespace Jkirkby91\Boilers\RepositoryBoiler;
+	namespace Jkirkby91\Boilers\RepositoryBoiler {
 
-use Jkirkby91\Boilers\NodeEntityBoiler\EntityContract AS Entity;
-use Psr\Http\Message\ServerRequestInterface;
+		use Doctrine\{
+			Common\Collections\Collection
+		};
 
-/**
- * Interface ResourceControllerContract
- *
- * @package Jkirkby91\LumenRestServerComponent\Contracts
- * @author James Kirkby <jkirkby91@gmail.com>
- */
-interface ResourceRepositoryContract
-{
+		use Jkirkby91\{
+			Boilers\NodeEntityBoiler\EntityContract
+		};
 
-    /**
-     * Return all for resource
-     *
-     * @return mixed
-     */
-    public function index();
+		use Psr\{
+			Http\Message\ServerRequestInterface
+		};
 
-    /**
-     * show individual resource
-     *
-     * @param $id
-     * @return mixed
-     */
-    public function show($id);
+		/**
+		 * Interface ResourceControllerContract
+		 *
+		 * @package Jkirkby91\LumenRestServerComponent\Contracts
+		 * @author James Kirkby <jkirkby91@gmail.com>
+		 */
+		interface ResourceRepositoryContract
+		{
 
-    /**
-     * @param Entity $entity
-     * @return mixed
-     */
-    public function store(Entity $entity);
+			/**
+			 * index()
+			 * @return \Doctrine\Common\Collections\Collection
+			 */
+			public function index() : Collection;
 
-    /**
-     * @param Entity $entity
-     * @return mixed
-     */
-    public function update(Entity $entity);
+			/**
+			 * show()
+			 * @param int $id
+			 *
+			 * @return \Jkirkby91\Boilers\NodeEntityBoiler\EntityContract
+			 */
+			public function show(int $id) : EntityContract;
 
-    /**
-     * Destroy single resource
-     *
-     * @param $id
-     * @return mixed
-     */
-    public function destroy($id);
+			/**
+			 * store()
+			 * @param \Jkirkby91\Boilers\NodeEntityBoiler\EntityContract $entity
+			 *
+			 * @return \Jkirkby91\Boilers\NodeEntityBoiler\EntityContract
+			 */
+			public function store(EntityContract $entity) : EntityContract;
 
-}
+			/**
+			 * update()
+			 * @param \Jkirkby91\Boilers\NodeEntityBoiler\EntityContract $entity
+			 *
+			 * @return \Jkirkby91\Boilers\NodeEntityBoiler\EntityContract
+			 */
+			public function update(EntityContract $entity) : EntityContract;
+
+			/**
+			 * destroy()
+			 * @param int $id
+			 *
+			 * @return bool
+			 */
+			public function destroy(int $id) : bool;
+
+		}
+	}

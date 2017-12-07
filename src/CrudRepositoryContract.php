@@ -1,46 +1,51 @@
 <?php
+	declare(strict_types=1);
 
-namespace Jkirkby91\Boilers\RepositoryBoiler;
+	namespace Jkirkby91\Boilers\RepositoryBoiler {
 
-use Jkirkby91\Boilers\NodeEntityBoiler\EntityContract AS Entity;
+		use Jkirkby91\{
+			Boilers\NodeEntityBoiler\EntityContract
+		};
 
-/**
- * Interface ResourceControllerContract
- *
- * @package Jkirkby91\LumenRestServerComponent\Contracts
- * @author James Kirkby <jkirkby91@gmail.com>
- */
-interface CrudRepositoryContract
-{
+		/**
+		 * Interface ResourceControllerContract
+		 *
+		 * @package Jkirkby91\LumenRestServerComponent\Contracts
+		 * @author James Kirkby <jkirkby91@gmail.com>
+		 */
+		interface CrudRepositoryContract
+		{
 
-    /**
-     * Return all for resource
-     *
-     * @return mixed
-     */
-    public function create(Entity $entity);
+			/**
+			 * create()
+			 * @param \Jkirkby91\Boilers\NodeEntityBoiler\EntityContract $entity
+			 *
+			 * @return \Jkirkby91\Boilers\NodeEntityBoiler\EntityContract
+			 */
+			public function create(EntityContract $entity);
 
-    /**
-     * show individual resource
-     *
-     * @param $id
-     * @return mixed
-     */
-    public function read($id);
+			/**
+			 * read()
+			 * @param int $id
+			 *
+			 * @return \Jkirkby91\Boilers\NodeEntityBoiler\EntityContract
+			 */
+			public function read(int $id);
 
-    /**
-     * Store a new resource
-     *
-     * @param Entity $entity
-     * @return mixed
-     */
-    public function update(Entity $entity);
+			/**
+			 * update()
+			 * @param \Jkirkby91\Boilers\NodeEntityBoiler\EntityContract $entity
+			 *
+			 * @return \Jkirkby91\Boilers\NodeEntityBoiler\EntityContract
+			 */
+			public function update(EntityContract $entity);
 
-    /**
-     * Destroy single resource
-     *
-     * @param $id
-     * @return mixed
-     */
-    public function delete($id);
-}
+			/**
+			 * delete()
+			 * @param int $id
+			 *
+			 * @return bool
+			 */
+			public function delete(int $id) : bool;
+		}
+	}
